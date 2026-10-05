@@ -104,11 +104,13 @@ Reply concisely under 100 words. Never say you are Claude.`
 const CSS = `
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-:root{--bg:#0c0a08;--s1:#141210;--s2:#1c1916;--tx:#e8e0d4;--tx2:rgba(232,224,212,.62);--tx3:rgba(232,224,212,.3);--ac:#fbbf24;--bd:rgba(232,224,212,.1);--bd2:rgba(232,224,212,.18)}
-[data-theme="light"]{--bg:#fafaf9;--s1:#f3f1ee;--s2:#eceae6;--tx:#1a1614;--tx2:rgba(26,22,20,.62);--tx3:rgba(26,22,20,.3);--ac:#f59e0b;--bd:rgba(26,22,20,.1);--bd2:rgba(26,22,20,.18)}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);font-size:15px;line-height:1.6;transition:background .2s,color .2s}
+:root{--bg:#0b0b0a;--s1:#131210;--s2:#1a1714;--tx:#f5f1ea;--tx2:rgba(245,241,234,.76);--tx3:rgba(245,241,234,.45);--ac:#d8b36d;--ac2:#f2d39f;--bd:rgba(245,241,234,.08);--bd2:rgba(245,241,234,.14)}
+[data-theme="light"]{--bg:#f5f2ee;--s1:#fffdf9;--s2:#f0ece5;--tx:#171512;--tx2:rgba(23,21,18,.74);--tx3:rgba(23,21,18,.48);--ac:#b9862b;--ac2:#d9ad59;--bd:rgba(23,21,18,.08);--bd2:rgba(23,21,18,.15)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:radial-gradient(circle at top, rgba(216,179,109,.12), transparent 38%),var(--bg);color:var(--tx);font-size:15px;line-height:1.6;transition:background .2s,color .2s}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;padding:0 20px;height:46px;gap:2px;border-bottom:1px solid var(--bd);background:var(--bg);overflow-x:auto}.brand{font-size:14px;font-weight:600;letter-spacing:.03em;color:var(--tx);margin-right:auto;cursor:pointer;flex-shrink:0;background:none;border:none;font-family:inherit}.nl{font-size:12px;padding:4px 8px;border-radius:6px;color:var(--tx2);background:none;border:none;cursor:pointer;font-family:inherit;flex-shrink:0;white-space:nowrap}.nl:hover,.nl.on{background:var(--s1);color:var(--tx)}.nl.on{font-weight:500}.tpill{padding:3px 10px;border-radius:20px;border:1px solid var(--bd2);background:var(--s1);color:var(--tx2);font-size:11px;font-weight:500;cursor:pointer;font-family:inherit;flex-shrink:0;margin-left:4px}.ocnav{padding:3px 10px;border-radius:6px;border:1px solid var(--bd2);background:var(--s1);color:var(--tx2);font-size:11px;font-weight:500;cursor:pointer;font-family:inherit;flex-shrink:0;margin-left:2px}.wrap{padding:64px 24px;max-width:760px;margin:0 auto}.rule{border:none;border-top:1px solid var(--bd)}.lbl{font-size:11px;font-weight:500;color:var(--ac);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}h1{font-size:clamp(28px,5vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:8px}h2{font-size:20px;font-weight:500;letter-spacing:-.015em;margin-bottom:16px}h3{font-size:14px;font-weight:500;margin-bottom:5px}.bp{padding:8px 18px;border-radius:7px;border:none;background:var(--ac);color:#111827;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}.bp:hover{opacity:.88}.bo{padding:8px 18px;border-radius:7px;border:1px solid var(--bd2);background:transparent;color:var(--tx);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit}.bo:hover{background:var(--s1)}.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:16px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}.stat-n{font-size:22px;font-weight:600}.stat-l{font-size:11px;color:var(--tx3);margin-top:3px}.tl-item{display:flex;gap:14px;padding-bottom:26px}.tl-dc{display:flex;flex-direction:column;align-items:center;flex-shrink:0}.tl-dot{width:9px;height:9px;border-radius:50%;background:var(--ac);margin-top:5px}.tl-ln{width:1px;background:var(--bd);flex:1;margin-top:4px}.pf-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}.pf-btn{font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid var(--bd2);color:var(--tx2);background:transparent;cursor:pointer;font-family:inherit}.pf-btn.on{background:rgba(251,191,36,.1);color:var(--ac);border-color:var(--ac)}.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pc{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:16px;cursor:pointer;transition:border-color .15s}.pc:hover{border-color:var(--ac)}.sk-tabs{display:flex;gap:6px;margin-bottom:20px;perspective:600px}.sk-tab{font-size:12px;padding:6px 14px;border-radius:7px;border:1px solid var(--bd2);color:var(--tx2);background:var(--s1);cursor:pointer;font-family:inherit;transition:all .2s;transform-style:preserve-3d}.sk-tab:hover{transform:rotateX(-8deg) translateY(-1px);border-color:var(--ac)}.sk-tab.on{background:var(--ac);color:#111827;border-color:var(--ac)}.sk-panel{animation:panelIn .3s cubic-bezier(.16,1,.3,1)}@keyframes panelIn{from{opacity:0;transform:rotateX(-12deg) translateY(8px)}to{opacity:1;transform:rotateX(0) translateY(0)}}.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}.si{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:14px 10px;text-align:center;transition:all .2s;cursor:default}.si:hover{border-color:var(--ac);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.2)}.si-logo{width:32px;height:32px;margin:0 auto 8px}.si-logo svg{width:100%;height:100%}.si-bar{height:3px;background:var(--bd2);border-radius:2px;margin-top:8px;overflow:hidden}.si-fill{height:100%;border-radius:2px;width:0;transition:width 1s cubic-bezier(.16,1,.3,1)}.radar-wrap{display:flex;justify-content:center;padding:8px 0}.sk-timeline{display:flex;flex-direction:column;gap:10px}.sk-tl-item{display:flex;align-items:center;gap:12px}.sk-tl-logo{width:24px;height:24px;flex-shrink:0}.sk-tl-bar-wrap{flex:1;background:var(--bd2);border-radius:4px;height:8px;overflow:hidden}.sk-tl-bar{height:100%;border-radius:4px;transition:width 1s cubic-bezier(.16,1,.3,1)}.ft-svg-wrap{width:100%;overflow-x:auto;padding:8px 0;-webkit-overflow-scrolling:touch}.dialog-backdrop{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;animation:fadein .2s ease}@keyframes fadein{from{opacity:0}to{opacity:1}}.dialog-card{background:var(--s1);border:1px solid var(--bd2);border-radius:16px;width:100%;max-width:420px;overflow:hidden;animation:slideup .25s cubic-bezier(.16,1,.3,1)}@keyframes slideup{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}.dialog-img-area{width:100%;height:280px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.dialog-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;width:100%;height:100%}.dialog-body{padding:20px}.dialog-close{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.5);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;line-height:1}.ch-head{width:100%;display:flex;align-items:center;gap:10px;padding:13px 14px;background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left}.ch-body{padding:0 14px 14px;border-top:1px solid var(--bd)}.writing-canvas-wrap{position:relative;height:160px;margin-bottom:20px;border-radius:12px;overflow:hidden;background:var(--s1);border:1px solid var(--bd)}.bc{background:var(--s1);border:1px solid var(--bd);border-radius:10px;overflow:hidden;cursor:pointer;transition:all .2s}.bc:hover{border-color:var(--ac);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}.bc-img{height:80px;background:var(--s2);display:flex;align-items:center;justify-content:center;font-size:26px;border-bottom:1px solid var(--bd)}.bc-body{padding:12px}.cf-input{font-size:13px;padding:8px 10px;border-radius:7px;border:1px solid var(--bd2);background:var(--s1);color:var(--tx);font-family:inherit;outline:none;width:100%;resize:vertical}.cf-input:focus{border-color:var(--ac)}.ci-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:11px}.oc-fab{position:fixed;bottom:20px;right:20px;z-index:100;display:flex;align-items:center;gap:6px;padding:9px 16px;border-radius:24px;border:1px solid var(--bd2);background:var(--s2);color:var(--tx);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;box-shadow:0 4px 16px rgba(0,0,0,.25)}.oc-fab:hover{border-color:var(--ac);color:var(--ac)}.oc-drawer{position:fixed;bottom:0;right:0;width:340px;height:490px;background:var(--s1);border:1px solid var(--bd2);border-radius:12px 12px 0 0;display:flex;flex-direction:column;z-index:200;transform:translateY(100%);transition:transform .22s cubic-bezier(.32,1,.23,1);box-shadow:0 -8px 32px rgba(0,0,0,.2)}.oc-drawer.open{transform:translateY(0)}.oc-head{padding:11px 13px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px;flex-shrink:0}.oc-av{width:26px;height:26px;border-radius:50%;background:rgba(251,191,36,.12);color:var(--ac);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0}.oc-x{background:none;border:none;cursor:pointer;color:var(--tx3);font-size:18px;padding:4px;line-height:1}.oc-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}.oc-bub-b{font-size:13px;line-height:1.55;padding:8px 10px;max-width:86%;word-break:break-word;background:var(--s2);border:1px solid var(--bd);color:var(--tx);border-radius:3px 10px 10px 10px}.oc-bub-u{font-size:13px;line-height:1.55;padding:8px 10px;max-width:86%;word-break:break-word;background:var(--ac);color:#111827;border-radius:10px 3px 10px 10px}.oc-inp{flex:1;font-size:13px;padding:7px 9px;border-radius:7px;border:1px solid var(--bd2);background:var(--bg);color:var(--tx);font-family:inherit;outline:none}.oc-inp:focus{border-color:var(--ac)}.oc-send{padding:7px 12px;border-radius:7px;border:none;background:var(--ac);color:#111827;font-size:13px;cursor:pointer;font-family:inherit}.oc-send:disabled{opacity:.4;cursor:not-allowed}.chip{font-size:11px;padding:3px 9px;border-radius:20px;border:1px solid var(--bd2);color:var(--tx2);background:var(--s1);cursor:pointer;font-family:inherit}.chip:hover{color:var(--tx);background:var(--s2)}@keyframes blink{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}.dot-1{animation:blink 1.1s infinite}.dot-2{animation:blink 1.1s .18s infinite}.dot-3{animation:blink 1.1s .36s infinite}footer{text-align:center;padding:24px 20px;font-size:12px;color:var(--tx3);border-top:1px solid var(--bd)}@media(max-width:600px){.g2,.pgrid,.cf-grid{grid-template-columns:1fr!important}.g3{grid-template-columns:1fr 1fr!important}.oc-drawer{width:100%!important}.stats{grid-template-columns:repeat(3,1fr)}.dialog-card{max-width:100%}}
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;padding:0 20px;height:54px;gap:2px;border-bottom:1px solid var(--bd);background:rgba(11,11,10,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);overflow-x:auto}
+.brand{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tx);margin-right:auto;cursor:pointer;flex-shrink:0;background:none;border:none;font-family:inherit}
+.nl{font-size:12px;padding:5px 10px;border-radius:999px;color:var(--tx2);background:none;border:none;cursor:pointer;font-family:inherit;flex-shrink:0;white-space:nowrap;transition:all .2s ease}.nl:hover,.nl.on{background:rgba(216,179,109,.08);color:var(--tx)}.nl.on{font-weight:600}.tpill{padding:5px 12px;border-radius:999px;border:1px solid var(--bd2);background:rgba(255,255,255,.01);color:var(--tx2);font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;flex-shrink:0;margin-left:4px}.ocnav{padding:5px 12px;border-radius:999px;border:1px solid rgba(216,179,109,.3);background:rgba(216,179,109,.08);color:var(--ac2);font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;flex-shrink:0;margin-left:4px}.wrap{padding:72px 24px;max-width:820px;margin:0 auto}.rule{border:none;border-top:1px solid var(--bd)}.lbl{font-size:11px;font-weight:600;color:var(--ac2);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1px solid rgba(216,179,109,.25);background:rgba(216,179,109,.07);color:var(--ac2);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}h1{font-size:clamp(36px,6vw,64px);font-weight:700;letter-spacing:-.06em;line-height:.96;margin:0 0 14px}.h1-accent{color:var(--ac2)}h2{font-size:32px;font-weight:600;letter-spacing:-.04em;margin-bottom:18px}.h2-sub{font-size:16px;color:var(--tx2);max-width:620px;line-height:1.75}.bp{padding:12px 18px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#171512;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 12px 20px rgba(216,179,109,.18)}.bp:hover{transform:translateY(-1px)}.bo{padding:12px 18px;border-radius:12px;border:1px solid var(--bd2);background:transparent;color:var(--tx);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}.bo:hover{background:var(--s1)}.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,0));border:1px solid var(--bd);border-radius:18px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,.06)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stat{background:rgba(255,255,255,.01);border:1px solid var(--bd);border-radius:16px;padding:18px 16px}.stat-n{font-size:26px;font-weight:700;letter-spacing:-.04em}.stat-l{font-size:11px;color:var(--tx3);margin-top:4px;text-transform:uppercase;letter-spacing:.09em}.tl-item{display:flex;gap:14px;padding-bottom:26px}.tl-dc{display:flex;flex-direction:column;align-items:center;flex-shrink:0}.tl-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 0 0 6px rgba(216,179,109,.08);margin-top:6px}.tl-ln{width:1px;background:var(--bd);flex:1;margin-top:4px}.pf-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.pf-btn{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--bd2);color:var(--tx2);background:transparent;cursor:pointer;font-family:inherit}.pf-btn.on{background:rgba(216,179,109,.08);color:var(--ac2);border-color:rgba(216,179,109,.25)}.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.pc{background:var(--s1);border:1px solid var(--bd);border-radius:18px;padding:18px;cursor:pointer;transition:all .2s ease}.pc:hover{border-color:rgba(216,179,109,.35);transform:translateY(-2px);box-shadow:0 16px 30px rgba(0,0,0,.08)}.sk-tabs{display:flex;gap:8px;margin-bottom:20px;perspective:600px}.sk-tab{font-size:12px;padding:7px 14px;border-radius:999px;border:1px solid var(--bd2);color:var(--tx2);background:var(--s1);cursor:pointer;font-family:inherit;transition:all .2s;transform-style:preserve-3d}.sk-tab:hover{transform:translateY(-1px);border-color:rgba(216,179,109,.35)}.sk-tab.on{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#171512;border-color:transparent}.sk-panel{animation:panelIn .3s cubic-bezier(.16,1,.3,1)}@keyframes panelIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}.si{background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:16px 10px;text-align:center;transition:all .2s;cursor:default}.si:hover{border-color:rgba(216,179,109,.35);transform:translateY(-2px)}.si-logo{width:32px;height:32px;margin:0 auto 8px}.si-logo svg{width:100%;height:100%}.si-bar{height:4px;background:var(--bd2);border-radius:999px;margin-top:10px;overflow:hidden}.si-fill{height:100%;border-radius:999px;width:0;transition:width 1s cubic-bezier(.16,1,.3,1)}.radar-wrap{display:flex;justify-content:center;padding:8px 0}.sk-timeline{display:flex;flex-direction:column;gap:10px}.sk-tl-item{display:flex;align-items:center;gap:12px}.sk-tl-logo{width:24px;height:24px;flex-shrink:0}.sk-tl-bar-wrap{flex:1;background:var(--bd2);border-radius:999px;height:8px;overflow:hidden}.sk-tl-bar{height:100%;border-radius:999px;transition:width 1s cubic-bezier(.16,1,.3,1)}.ft-svg-wrap{width:100%;overflow-x:auto;padding:8px 0;-webkit-overflow-scrolling:touch}.dialog-backdrop{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;animation:fadein .2s ease}@keyframes fadein{from{opacity:0}to{opacity:1}}.dialog-card{background:var(--s1);border:1px solid var(--bd2);border-radius:20px;width:100%;max-width:420px;overflow:hidden;animation:slideup .25s cubic-bezier(.16,1,.3,1)}@keyframes slideup{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}.dialog-img-area{width:100%;height:280px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.dialog-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;width:100%;height:100%}.dialog-body{padding:20px}.dialog-close{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.5);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;line-height:1}.ch-head{width:100%;display:flex;align-items:center;gap:10px;padding:14px 16px;background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left}.ch-body{padding:0 16px 16px;border-top:1px solid var(--bd)}.writing-canvas-wrap{position:relative;height:170px;margin-bottom:20px;border-radius:18px;overflow:hidden;background:var(--s1);border:1px solid var(--bd)}.bc{background:var(--s1);border:1px solid var(--bd);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s}.bc:hover{border-color:rgba(216,179,109,.35);transform:translateY(-2px);box-shadow:0 16px 30px rgba(0,0,0,.08)}.bc-img{height:88px;background:linear-gradient(135deg, rgba(216,179,109,.14), rgba(255,255,255,.02));display:flex;align-items:center;justify-content:center;font-size:30px;border-bottom:1px solid var(--bd)}.bc-body{padding:14px}.cf-input{font-size:13px;padding:9px 10px;border-radius:10px;border:1px solid var(--bd2);background:var(--s1);color:var(--tx);font-family:inherit;outline:none;width:100%;resize:vertical}.cf-input:focus{border-color:rgba(216,179,109,.4)}.ci-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:11px}.oc-fab{position:fixed;bottom:20px;right:20px;z-index:100;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;border:1px solid rgba(216,179,109,.3);background:rgba(17,17,17,.9);color:var(--tx);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;box-shadow:0 12px 28px rgba(0,0,0,.22)}.oc-fab:hover{border-color:rgba(216,179,109,.5);color:var(--ac2)}.oc-drawer{position:fixed;bottom:0;right:0;width:340px;height:500px;background:var(--s1);border:1px solid var(--bd2);border-radius:18px 18px 0 0;display:flex;flex-direction:column;z-index:200;transform:translateY(100%);transition:transform .22s cubic-bezier(.32,1,.23,1);box-shadow:0 -12px 40px rgba(0,0,0,.2)}.oc-drawer.open{transform:translateY(0)}.oc-head{padding:12px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px;flex-shrink:0}.oc-av{width:28px;height:28px;border-radius:50%;background:rgba(216,179,109,.12);color:var(--ac2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}.oc-x{background:none;border:none;cursor:pointer;color:var(--tx3);font-size:18px;padding:4px;line-height:1}.oc-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}.oc-bub-b{font-size:13px;line-height:1.55;padding:9px 10px;max-width:86%;word-break:break-word;background:var(--s2);border:1px solid var(--bd);color:var(--tx);border-radius:4px 12px 12px 12px}.oc-bub-u{font-size:13px;line-height:1.55;padding:9px 10px;max-width:86%;word-break:break-word;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#171512;border-radius:12px 4px 12px 12px}.oc-inp{flex:1;font-size:13px;padding:8px 10px;border-radius:10px;border:1px solid var(--bd2);background:var(--bg);color:var(--tx);font-family:inherit;outline:none}.oc-inp:focus{border-color:rgba(216,179,109,.35)}.oc-send{padding:8px 12px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#171512;font-size:13px;cursor:pointer;font-family:inherit}.oc-send:disabled{opacity:.4;cursor:not-allowed}.chip{font-size:11px;padding:4px 9px;border-radius:999px;border:1px solid var(--bd2);color:var(--tx2);background:var(--s1);cursor:pointer;font-family:inherit}.chip:hover{color:var(--tx);background:var(--s2)}@keyframes blink{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}.dot-1{animation:blink 1.1s infinite}.dot-2{animation:blink 1.1s .18s infinite}.dot-3{animation:blink 1.1s .36s infinite}footer{text-align:center;padding:28px 20px 48px;font-size:12px;color:var(--tx3);border-top:1px solid var(--bd)}@media(max-width:600px){.g2,.pgrid,.cf-grid{grid-template-columns:1fr!important}.g3{grid-template-columns:1fr 1fr!important}.oc-drawer{width:100%!important}.stats{grid-template-columns:repeat(3,1fr)}.dialog-card{max-width:100%}}
 `
 
 function gs(id: string) { document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }) }
@@ -181,7 +183,7 @@ function NavBar({ dark, toggleTheme, openOC }: { dark: boolean; toggleTheme: () 
   const links = [["about", "About"], ["projects", "Projects"], ["skills", "Skills"], ["resume", "Résumé"], ["family", "Family"], ["story", "Story"], ["blog", "Blog"], ["contact", "Contact"]]
   return (
     <nav className="nav">
-      <button className="brand" onClick={() => gs("hero")}>Vaibhav<em style={{ color: "var(--ac)", fontStyle: "normal" }}>Murmu</em></button>
+      <button className="brand" onClick={() => gs("hero")}>Vaibhav<em style={{ color: "var(--ac2)", fontStyle: "normal" }}>Murmu</em></button>
       {links.map(([id, label]) => (
         <button key={id} className={`nl${active === id ? " on" : ""}`} onClick={() => gs(id)}>{label}</button>
       ))}
@@ -195,9 +197,10 @@ function Hero({ openOC }: { openOC: () => void }) {
   return (
     <section id="hero" className="wrap" style={{ paddingTop: 72, paddingBottom: 64 }}>
       <div className="lbl">Founder · CFO · Operator</div>
-      <h1>Vaibhav Murmu</h1>
-      <div style={{ fontSize: 15, color: "var(--ac)", fontWeight: 500, marginBottom: 14 }}>Founder & CFO, RunAsh AI</div>
-      <p style={{ fontSize: 15, color: "var(--tx2)", maxWidth: 500, lineHeight: 1.7, marginBottom: 28 }}>
+      <div className="eyebrow">RunAsh AI · Strategic finance & growth</div>
+      <h1>Vaibhav <span className="h1-accent">Murmu</span></h1>
+      <div style={{ fontSize: 15, color: "var(--ac2)", fontWeight: 600, marginBottom: 18, letterSpacing: ".08em", textTransform: "uppercase" }}>Founder & CFO, RunAsh AI</div>
+      <p style={{ fontSize: 18, color: "var(--tx2)", maxWidth: 620, lineHeight: 1.75, marginBottom: 28 }}>
         Building the financial and operational backbone behind AI products, live commerce, and scalable startup execution from Bokaro to the next chapter.
       </p>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 44 }}>
@@ -218,7 +221,7 @@ function About() {
   return (
     <section id="about" className="wrap">
       <h2>Builder with a business lens</h2>
-      <p style={{ color: "var(--tx2)", marginBottom: 22, maxWidth: 520, lineHeight: 1.7, fontSize: 14 }}>
+      <p className="h2-sub" style={{ marginBottom: 22 }}>
         From a grounded upbringing in Bokaro to co-founding RunAsh AI — balancing product ambition with financial discipline, operational systems, and long-term strategy.
       </p>
       <div className="g2" style={{ marginBottom: 28 }}>
@@ -229,21 +232,21 @@ function About() {
           { icon: "🎯", t: "Mission", d: "Turn product ambition into durable operating systems and measurable business value." },
         ].map(({ icon, t, d }) => (
           <div key={t} className="card">
-            <div style={{ fontSize: 18, marginBottom: 10 }}>{icon}</div>
+            <div style={{ fontSize: 20, marginBottom: 12 }}>{icon}</div>
             <h3>{t}</h3>
-            <p style={{ fontSize: 13, color: "var(--tx2)", lineHeight: 1.55 }}>{d}</p>
+            <p style={{ fontSize: 13, color: "var(--tx2)", lineHeight: 1.6 }}>{d}</p>
           </div>
         ))}
       </div>
-      <div style={{ fontSize: 11, fontWeight: 500, color: "var(--tx3)", textTransform: "uppercase", letterSpacing: ".07em", marginBottom: 14 }}>Timeline</div>
+      <div style={{ fontSize: 11, fontWeight: 600, color: "var(--tx3)", textTransform: "uppercase", letterSpacing: ".08em", marginBottom: 14 }}>Timeline</div>
       {TL.map((t, i) => (
         <div key={t.role} className="tl-item">
           <div className="tl-dc"><div className="tl-dot" />{i < TL.length - 1 && <div className="tl-ln" />}</div>
           <div>
-            <div style={{ fontSize: 14, fontWeight: 500 }}>{t.role}</div>
-            <div style={{ fontSize: 13, color: "var(--ac)", margin: "2px 0" }}>{t.co}</div>
+            <div style={{ fontSize: 15, fontWeight: 600 }}>{t.role}</div>
+            <div style={{ fontSize: 13, color: "var(--ac2)", margin: "2px 0" }}>{t.co}</div>
             <div style={{ fontSize: 11, color: "var(--tx3)" }}>{t.p}</div>
-            <div style={{ fontSize: 13, color: "var(--tx2)", marginTop: 4, lineHeight: 1.5 }}>{t.d}</div>
+            <div style={{ fontSize: 13, color: "var(--tx2)", marginTop: 4, lineHeight: 1.6 }}>{t.d}</div>
           </div>
         </div>
       ))}
@@ -265,13 +268,13 @@ function Projects() {
       <div className="pgrid">
         {list.map((p) => (
           <div key={p.id} className="pc" onClick={() => window.open(p.url, "_blank")} onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--ac)" )} onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--bd)")}>
-            <div style={{ fontSize: 10, fontWeight: 600, color: "var(--ac)", textTransform: "uppercase", letterSpacing: ".07em", marginBottom: 5 }}>{p.cat}</div>
-            <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 5 }}>{p.title}</div>
-            <div style={{ fontSize: 13, color: "var(--tx2)", lineHeight: 1.5, marginBottom: 9 }}>{p.desc}</div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 9 }}>
-              {p.tags.map((t) => <span key={t} style={{ fontSize: 10, padding: "2px 7px", borderRadius: 20, background: "var(--s2)", border: "1px solid var(--bd)", color: "var(--tx3)" }}>{t}</span>)}
+            <div style={{ fontSize: 10, fontWeight: 700, color: "var(--ac2)", textTransform: "uppercase", letterSpacing: ".08em", marginBottom: 8 }}>{p.cat}</div>
+            <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{p.title}</div>
+            <div style={{ fontSize: 13, color: "var(--tx2)", lineHeight: 1.6, marginBottom: 10 }}>{p.desc}</div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 12 }}>
+              {p.tags.map((t) => <span key={t} style={{ fontSize: 10, padding: "3px 8px", borderRadius: 999, background: "var(--s2)", border: "1px solid var(--bd)", color: "var(--tx3)" }}>{t}</span>)}
             </div>
-            <div style={{ fontSize: 12, color: "var(--ac)", borderTop: "1px solid var(--bd)", paddingTop: 9 }}>↗ View project</div>
+            <div style={{ fontSize: 12, color: "var(--ac2)", borderTop: "1px solid var(--bd)", paddingTop: 10, fontWeight: 600 }}>↗ View project</div>
           </div>
         ))}
       </div>
@@ -289,16 +292,16 @@ function RadarChart({ dark }: { dark: boolean }) {
   const pt = (a: number, rad: number) => ({ x: cx + rad * Math.cos(a - Math.PI / 2), y: cy + rad * Math.sin(a - Math.PI / 2) })
   const dpts = scores.map((cs, i) => pt(i * aStep, (cs.score / 100) * r))
   const path = dpts.map((p, i) => `${i === 0 ? "M" : "L"}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ") + "Z"
-  const tc = dark ? "rgba(232,224,212,.65)" : "rgba(26,22,20,.65)"
-  const gc = dark ? "rgba(232,224,212,.1)" : "rgba(26,22,20,.1)"
+  const tc = dark ? "rgba(245,241,234,.7)" : "rgba(23,21,18,.7)"
+  const gc = dark ? "rgba(245,241,234,.08)" : "rgba(23,21,18,.08)"
 
   return (
     <div className="radar-wrap">
       <svg width="320" height="280" viewBox="0 0 320 280">
         {[25, 50, 75, 100].map((l) => { const ps = scores.map((_, i) => pt(i * aStep, (l / 100) * r)); return <path key={l} d={ps.map((p, i) => `${i === 0 ? "M" : "L"}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ") + "Z"} fill="none" stroke={gc} strokeWidth="1" /> })}
         {scores.map((_, i) => { const p = pt(i * aStep, r); return <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke={gc} strokeWidth="1" /> })}
-        <path d={path} fill="rgba(251,191,36,.15)" stroke="#fbbf24" strokeWidth="2" />
-        {dpts.map((p, i) => <circle key={i} cx={p.x} cy={p.y} r="4" fill="#fbbf24" />)}
+        <path d={path} fill="rgba(216,179,109,.15)" stroke="#d8b36d" strokeWidth="2" />
+        {dpts.map((p, i) => <circle key={i} cx={p.x} cy={p.y} r="4" fill="#d8b36d" />)}
         {scores.map((cs, i) => { const lp = pt(i * aStep, r + 28); return <text key={i} x={lp.x} y={lp.y} textAnchor="middle" dominantBaseline="middle" fontSize="11" fill={tc}>{cs.cat.split(" ")[0]} {cs.score}%</text> })}
       </svg>
     </div>
@@ -328,7 +331,7 @@ function Skills({ dark }: { dark: boolean }) {
             {SKILLS.map((s) => (
               <div key={s.n} className="si" title={`${s.n} — ${s.p}% · since ${s.since}`}>
                 <div className="si-logo"><div dangerouslySetInnerHTML={{ __html: LOGOS[s.logo] || LOGOS["WebRTC"] }} /></div>
-                <div style={{ fontSize: 11, fontWeight: 500, margin: "4px 0 2px" }}>{s.n}</div>
+                <div style={{ fontSize: 11, fontWeight: 600, margin: "4px 0 2px" }}>{s.n}</div>
                 <div style={{ fontSize: 9, color: "var(--tx3)" }}>{s.category}</div>
                 <div className="si-bar"><div className="si-fill" style={{ width: animated ? `${s.p}%` : 0, background: s.color }} /></div>
               </div>
@@ -341,7 +344,7 @@ function Skills({ dark }: { dark: boolean }) {
             {[...SKILLS].sort((a, b) => a.since - b.since).map((s) => (
               <div key={s.n} className="sk-tl-item">
                 <div className="sk-tl-logo"><div dangerouslySetInnerHTML={{ __html: LOGOS[s.logo] || LOGOS["WebRTC"] }} /></div>
-                <div style={{ fontSize: 11, fontWeight: 500, width: 110, flexShrink: 0 }}>{s.n}</div>
+                <div style={{ fontSize: 11, fontWeight: 600, width: 110, flexShrink: 0 }}>{s.n}</div>
                 <div style={{ fontSize: 10, color: "var(--tx3)", width: 30, flexShrink: 0 }}>'{String(s.since).slice(2)}</div>
                 <div style={{ flex: 1 }} className="sk-tl-bar-wrap"><div className="sk-tl-bar" style={{ width: animated ? `${s.p}%` : 0, background: s.color }} /></div>
                 <div style={{ fontSize: 11, color: "var(--tx3)", width: 32, textAlign: "right", flexShrink: 0 }}>{s.p}%</div>
@@ -359,41 +362,41 @@ function Resume() {
     <section id="resume" className="wrap">
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 10, marginBottom: 20 }}>
         <h2 style={{ margin: 0 }}>Résumé</h2>
-        <a href="/Vaibhav_Murmu_Resume.pdf" download style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "6px 13px", borderRadius: 7, border: "1px solid var(--bd2)", background: "var(--s1)", color: "var(--tx)", fontSize: 12, fontWeight: 500, textDecoration: "none" }}>⬇ Download PDF</a>
+        <a href="/Vaibhav_Murmu_Resume.pdf" download style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "7px 13px", borderRadius: 10, border: "1px solid var(--bd2)", background: "var(--s1)", color: "var(--tx)", fontSize: 12, fontWeight: 600, textDecoration: "none" }}>⬇ Download PDF</a>
       </div>
       <div className="g2" style={{ marginBottom: 10 }}>
         <div className="card">
-          <div style={{ fontSize: 10, fontWeight: 600, color: "var(--ac)", textTransform: "uppercase", letterSpacing: ".07em", marginBottom: 10 }}>Experience</div>
-          <div style={{ fontWeight: 500, marginBottom: 2 }}>Founder & CFO</div>
-          <div style={{ fontSize: 13, color: "var(--ac)", margin: "2px 0" }}>RunAsh AI</div>
+          <div style={{ fontSize: 10, fontWeight: 700, color: "var(--ac2)", textTransform: "uppercase", letterSpacing: ".08em", marginBottom: 10 }}>Experience</div>
+          <div style={{ fontWeight: 600, marginBottom: 2 }}>Founder & CFO</div>
+          <div style={{ fontSize: 13, color: "var(--ac2)", margin: "2px 0" }}>RunAsh AI</div>
           <div style={{ fontSize: 11, color: "var(--tx3)", marginBottom: 8 }}>Apr 2021 – present · Bokaro, Jharkhand</div>
           <p style={{ fontSize: 13, color: "var(--tx2)", lineHeight: 1.6 }}>Owning the financial strategy, operating model, and business systems behind AI-driven products and live commerce experiences.</p>
         </div>
         <div className="card">
-          <div style={{ fontSize: 10, fontWeight: 600, color: "var(--ac)", textTransform: "uppercase", letterSpacing: ".07em", marginBottom: 10 }}>Education</div>
-          <div style={{ fontWeight: 500, marginBottom: 2 }}>Business & Strategy Focus</div>
-          <div style={{ fontSize: 13, color: "var(--ac)", margin: "2px 0" }}>Self-directed growth + startup execution</div>
+          <div style={{ fontSize: 10, fontWeight: 700, color: "var(--ac2)", textTransform: "uppercase", letterSpacing: ".08em", marginBottom: 10 }}>Education</div>
+          <div style={{ fontWeight: 600, marginBottom: 2 }}>Business & Strategy Focus</div>
+          <div style={{ fontSize: 13, color: "var(--ac2)", margin: "2px 0" }}>Self-directed growth + startup execution</div>
           <div style={{ fontSize: 11, color: "var(--tx3)", marginBottom: 10 }}>Practical strategy in high-uncertainty environments</div>
-          <div style={{ fontWeight: 500, marginBottom: 2 }}>Leadership & Systems</div>
-          <div style={{ fontSize: 13, color: "var(--ac)", margin: "2px 0" }}>Operational scaling</div>
+          <div style={{ fontWeight: 600, marginBottom: 2 }}>Leadership & Systems</div>
+          <div style={{ fontSize: 13, color: "var(--ac2)", margin: "2px 0" }}>Operational scaling</div>
           <div style={{ fontSize: 11, color: "var(--tx3)" }}>Focused on sustainable value creation</div>
         </div>
       </div>
       <div className="card" style={{ marginBottom: 10 }}>
-        <div style={{ fontSize: 10, fontWeight: 600, color: "var(--ac)", textTransform: "uppercase", letterSpacing: ".07em", marginBottom: 10 }}>Capability stack</div>
+        <div style={{ fontSize: 10, fontWeight: 700, color: "var(--ac2)", textTransform: "uppercase", letterSpacing: ".08em", marginBottom: 10 }}>Capability stack</div>
         <div className="g2">
           {[["Finance", "P&L, capital planning, fundraising readiness, investor communications, strategic planning"], ["Operations", "Operating systems, workflow design, team coordination, business process structure"], ["Strategy", "Market analysis, business model refinement, growth planning, product economics"], ["Analytics", "Excel, SQL, dashboards, KPI design, reporting frameworks"]].map(([l, v]) => (
-            <div key={l}><div style={{ fontSize: 11, fontWeight: 500, color: "var(--ac)", marginBottom: 3 }}>{l}</div><p style={{ fontSize: 12, color: "var(--tx2)", lineHeight: 1.55 }}>{v}</p></div>
+            <div key={l}><div style={{ fontSize: 11, fontWeight: 600, color: "var(--ac2)", marginBottom: 3 }}>{l}</div><p style={{ fontSize: 12, color: "var(--tx2)", lineHeight: 1.55 }}>{v}</p></div>
           ))}
         </div>
       </div>
       <div className="card">
-        <div style={{ fontSize: 10, fontWeight: 600, color: "var(--ac)", textTransform: "uppercase", letterSpacing: ".07em", marginBottom: 10 }}>Highlights</div>
+        <div style={{ fontSize: 10, fontWeight: 700, color: "var(--ac2)", textTransform: "uppercase", letterSpacing: ".08em", marginBottom: 10 }}>Highlights</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {[["Investor communication", "Investor readiness across product, market, and capital needs"], ["Commercial planning", "Revenue model thinking tied to execution"], ["Operating cadence", "Decision frameworks that scale with growth"]].map(([name, org]) => (
             <div key={name} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ color: "var(--ac)" }}>🏅</span>
-              <span style={{ fontSize: 13, fontWeight: 500 }}>{name}</span>
+              <span style={{ color: "var(--ac2)" }}>🏅</span>
+              <span style={{ fontSize: 13, fontWeight: 600 }}>{name}</span>
               <span style={{ fontSize: 12, color: "var(--tx3)" }}>· {org}</span>
             </div>
           ))}
@@ -406,9 +409,9 @@ function Resume() {
 function FamilyTree({ dark }: { dark: boolean }) {
   const [dialogMember, setDialogMember] = useState<FamMember | null>(null)
 
-  const tc = dark ? "rgba(232,224,212,.85)" : "rgba(26,22,20,.85)"
-  const tc3 = dark ? "rgba(232,224,212,.32)" : "rgba(26,22,20,.32)"
-  const bd = dark ? "rgba(232,224,212,.12)" : "rgba(26,22,20,.12)"
+  const tc = dark ? "rgba(245,241,234,.85)" : "rgba(23,21,18,.85)"
+  const tc3 = dark ? "rgba(245,241,234,.32)" : "rgba(23,21,18,.32)"
+  const bd = dark ? "rgba(245,241,234,.12)" : "rgba(23,21,18,.12)"
   const stripe0 = dark ? "rgba(255,255,255,.015)" : "rgba(0,0,0,.015)"
   const stripe1 = dark ? "rgba(255,255,255,.025)" : "rgba(0,0,0,.025)"
 
@@ -441,14 +444,14 @@ function FamilyTree({ dark }: { dark: boolean }) {
     <section id="family" className="wrap">
       <h2>Murmu family tree</h2>
       <p style={{ fontSize: 14, color: "var(--tx2)", marginBottom: 18, lineHeight: 1.6 }}>
-        Five generations of the Murmu family — rooted in Bokaro, Jharkhand. <strong style={{ color: "var(--tx)", fontWeight: 500 }}>Click any member</strong> to open their profile card.
+        Five generations of the Murmu family — rooted in Bokaro, Jharkhand. <strong style={{ color: "var(--tx)", fontWeight: 600 }}>Click any member</strong> to open their profile card.
       </p>
 
       <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 20 }}>
         {GEN_META.map((g) => (
           <div key={g.gen} style={{ display: "flex", alignItems: "center", gap: 5 }}>
             <div style={{ width: 9, height: 9, borderRadius: "50%", background: g.col, flexShrink: 0 }} />
-            <span style={{ fontSize: 11, color: "var(--tx3)" }}><strong style={{ color: "var(--tx)", fontWeight: 500 }}>{g.label}</strong> — {g.sub}</span>
+            <span style={{ fontSize: 11, color: "var(--tx3)" }}><strong style={{ color: "var(--tx)", fontWeight: 600 }}>{g.label}</strong> — {g.sub}</span>
           </div>
         ))}
       </div>
@@ -559,20 +562,20 @@ function Story() {
         {CHAPTERS.map((ch, i) => {
           const isOpen = open.has(ch.id)
           return (
-            <div key={ch.id} style={{ border: "1px solid var(--bd)", borderRadius: 10, overflow: "hidden" }}>
+            <div key={ch.id} style={{ border: "1px solid var(--bd)", borderRadius: 12, overflow: "hidden", background: "rgba(255,255,255,.01)" }}>
               <button className="ch-head" onClick={() => toggle(ch.id)}>
-                <div style={{ width: 24, height: 24, borderRadius: "50%", background: isOpen ? "var(--ac)" : "rgba(251,191,36,.12)", color: isOpen ? "#111827" : "var(--ac)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, flexShrink: 0 }}>{String(i + 1).padStart(2, "0")}</div>
+                <div style={{ width: 26, height: 26, borderRadius: "50%", background: isOpen ? "linear-gradient(135deg,var(--ac),var(--ac2))" : "rgba(216,179,109,.12)", color: isOpen ? "#171512" : "var(--ac2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, flexShrink: 0 }}>{String(i + 1).padStart(2, "0")}</div>
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 10, fontWeight: 600, color: "var(--ac)", textTransform: "uppercase", letterSpacing: ".07em" }}>{ch.lbl}</div>
-                  <div style={{ fontSize: 14, fontWeight: 500, color: "var(--tx)", marginTop: 1 }}>{ch.h}</div>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: "var(--ac2)", textTransform: "uppercase", letterSpacing: ".08em" }}>{ch.lbl}</div>
+                  <div style={{ fontSize: 15, fontWeight: 600, color: "var(--tx)", marginTop: 1 }}>{ch.h}</div>
                 </div>
-                <span style={{ fontSize: 14, color: "var(--tx3)" }}>{isOpen ? "−" : "+"}</span>
+                <span style={{ fontSize: 16, color: "var(--tx3)" }}>{isOpen ? "−" : "+"}</span>
               </button>
               {isOpen && (
                 <div className="ch-body">
                   <p style={{ fontSize: 14, color: "var(--tx2)", lineHeight: 1.75, margin: "14px 0" }}>{ch.b}</p>
                   <div style={{ borderLeft: "3px solid var(--ac)", paddingLeft: 14 }}>
-                    <p style={{ fontSize: 14, fontStyle: "italic", color: "var(--tx)", lineHeight: 1.55, fontWeight: 500 }}>"{ch.q}"</p>
+                    <p style={{ fontSize: 14, fontStyle: "italic", color: "var(--tx)", lineHeight: 1.55, fontWeight: 600 }}>"{ch.q}"</p>
                   </div>
                 </div>
               )}
@@ -648,8 +651,8 @@ function Blog({ dark }: { dark: boolean }) {
           <div key={p.title} className="bc" onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--ac)")} onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--bd)")}>
             <div className="bc-img">{p.icon}</div>
             <div className="bc-body">
-              <div style={{ fontSize: 10, fontWeight: 600, color: "var(--ac)", textTransform: "uppercase", letterSpacing: ".07em", marginBottom: 4 }}>{p.cat}</div>
-              <div style={{ fontSize: 12, fontWeight: 500, lineHeight: 1.4, marginBottom: 5 }}>{p.title}</div>
+              <div style={{ fontSize: 10, fontWeight: 700, color: "var(--ac2)", textTransform: "uppercase", letterSpacing: ".08em", marginBottom: 4 }}>{p.cat}</div>
+              <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.4, marginBottom: 5 }}>{p.title}</div>
               <div style={{ fontSize: 12, color: "var(--tx2)", lineHeight: 1.5, marginBottom: 6 }}>{p.desc}</div>
               <div style={{ fontSize: 11, color: "var(--tx3)" }}>{p.date}</div>
             </div>
@@ -664,7 +667,7 @@ function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", msg: "" })
   const [status, setStatus] = useState<{ ok: boolean; text: string } | null>(null)
   const [sending, setSending] = useState(false)
-  const inp = { fontSize: 13, padding: "8px 10px", borderRadius: 7, border: "1px solid var(--bd2)", background: "var(--s1)" as const, color: "var(--tx)" as const, fontFamily: "inherit", outline: "none", width: "100%" } as const
+  const inp = { fontSize: 13, padding: "9px 10px", borderRadius: 10, border: "1px solid var(--bd2)", background: "var(--s1)" as const, color: "var(--tx)" as const, fontFamily: "inherit", outline: "none", width: "100%" } as const
 
   async function submit() {
     if (!form.name || !form.email || !form.msg) { setStatus({ ok: false, text: "Fill in name, email, and message." }); return }
@@ -681,7 +684,7 @@ function Contact() {
         <div>
           {[["✉", "Email", "teamstartuprunash@gmail.com"], ["📱", "Phone", "+91 89877 24121"], ["📍", "Location", "Bokaro, Jharkhand, India"], ["💼", "LinkedIn", "linkedin.com/in/rammurmu"], ["🐙", "GitHub", "github.com/rammurmu"], ["🌐", "Site", "rammurmu.runash.in"]].map(([icon, label, val]) => (
             <div key={label} className="ci-row">
-              <span style={{ fontSize: 15, color: "var(--ac)", flexShrink: 0, marginTop: 2 }}>{icon}</span>
+              <span style={{ fontSize: 15, color: "var(--ac2)", flexShrink: 0, marginTop: 2 }}>{icon}</span>
               <div><div style={{ fontSize: 10, color: "var(--tx3)", marginBottom: 1 }}>{label}</div><div style={{ fontSize: 13 }}>{val}</div></div>
             </div>
           ))}
@@ -735,7 +738,7 @@ function OpenClaw({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => v
       <div className={`oc-drawer${open ? " open" : ""}`} role="dialog" aria-label="OpenClaw AI" aria-modal="true">
         <div className="oc-head">
           <div className="oc-av">✦</div>
-          <div style={{ flex: 1 }}><div style={{ fontSize: 13, fontWeight: 500 }}>OpenClaw</div><div style={{ fontSize: 10, color: "var(--tx3)" }}>Vaibhav’s personal AGI</div></div>
+          <div style={{ flex: 1 }}><div style={{ fontSize: 13, fontWeight: 600 }}>OpenClaw</div><div style={{ fontSize: 10, color: "var(--tx3)" }}>Vaibhav’s personal AGI</div></div>
           <button className="oc-x" onClick={() => setOpen(false)} aria-label="Close">×</button>
         </div>
         <div ref={msgsRef} className="oc-msgs">
@@ -795,7 +798,7 @@ export default function Page() {
       <Rule />
       <Contact />
       <footer>
-        Vaibhav Murmu · RunAsh AI · Bokaro, Jharkhand · <span style={{ color: "var(--ac)" }}>teamstartuprunash@gmail.com</span>
+        Vaibhav Murmu · RunAsh AI · Bokaro, Jharkhand · <span style={{ color: "var(--ac2)" }}>teamstartuprunash@gmail.com</span>
         <div style={{ marginTop: 6, fontSize: 11 }}>
           <span style={{ color: "var(--tx3)" }}>Co-founders: </span>
           <span style={{ color: "var(--tx2)" }}>Ram Murmu (CEO) · Puja K Murmu (Marketing) · Nirali Murmu (CS)</span>
